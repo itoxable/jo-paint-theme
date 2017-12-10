@@ -1,0 +1,26 @@
+$text-color: red !default;
+$navbar-default-link-hover-color: $text-color !default;
+$navbar-default-link-hover-bg: $text-color !default;
+$navbar-default-link-color: $text-color !default;
+
+
+
+@import "imports";
+
+@import "base";
+
+@import "portal";
+
+@import "taglib";
+
+@import "application";
+
+@import "layout";
+
+@import "navigation";
+
+@import "portlet";
+
+@import "extras";
+
+@import "custom";

@@ -9,7 +9,10 @@
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
+	<#--  <script type="text/javascript" src="${javascript_folder}/jquery-3.2.1.min.js"></script>  -->
+
 	<@liferay_util["include"] page=top_head_include />
+
 </head>
 
 <body class="${css_class}">
@@ -21,45 +24,61 @@
 <@liferay.control_menu />
 
 <div class="container-fluid" id="wrapper">
-	<header id="banner" role="banner">
-		<div id="heading">
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<header id="banner" role="banner">
+					<div id="heading">
+						<h1 class="site-title">
+							<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+								<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
+							</a>
 
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
+							<#if show_site_name>
+								<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+									${site_name}
+								</span>
+							</#if>
+						</h1>
+					</div>
+
+					<#--  <#if !is_signed_in>
+						<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
+					</#if>  -->
+
+					<#if has_navigation && is_setup_complete>
+						<#include "${full_templates_path}/navigation.ftl" />
+					</#if>
+				</header>
+			</div>
 		</div>
 
-		<#if !is_signed_in>
-			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
+	</div>
+	
 
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-	</header>
+	<div class="container">
+		<div class="row">
 
-	<section id="content">
-		<h1 class="hide-accessible">${the_title}</h1>
+			<section id="content">
+				<h1 class="hide-accessible">${the_title}</h1>
 
-		<#if selectable>
-			<@liferay_util["include"] page=content_include />
-		<#else>
-			${portletDisplay.recycle()}
+				<#if selectable>
+					<@liferay_util["include"] page=content_include />
+				<#else>
+					${portletDisplay.recycle()}
 
-			${portletDisplay.setTitle(the_title)}
+					${portletDisplay.setTitle(the_title)}
 
-			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
-				<@liferay_util["include"] page=content_include />
-			</@>
-		</#if>
-	</section>
+					<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+						<@liferay_util["include"] page=content_include />
+					</@>
+				</#if>
+			</section>
+
+		</div>
+	</div>
+
+	
 
 	<footer id="footer" role="contentinfo">
 		
@@ -71,7 +90,13 @@
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
+
+	<script type="text/javascript" src="${javascript_folder}/slick.js"></script>
+
+
 <!-- endinject -->
+
+
 
 </body>
 

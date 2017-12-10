@@ -11,6 +11,70 @@
 // @import "partials/footer";
 // @import "partials/navbar";
 
-@import "compass";
-@import "mixins";
-@import "aui_variables";
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+
+// // Optional
+// @import "node_modules/bootstrap/scss/reboot";
+// @import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/images";
+// @import "node_modules/bootstrap/scss/code";
+// @import "node_modules/bootstrap/scss/grid"
+
+// @import "main";
+
+$slick-arrow-color: #000 !default;
+//$slick-prev-character: '<g xmlns="http://www.w3.org/2000/svg" id="Carousel-link" transform="translate(0.409836, 0.180328)"><path d="M1.80640667,1.80640667 L1.80640667,29.7236006" id="Line"/><path d="M1.80640667,1.80640667 L29.7236006,1.80640667" id="Line-Copy"/></g>' !default; 
+
+@import "slick/slick";
+@import "slick/slick-theme";
+
+body {
+    // background-color: red;
+
+}
+
+.slide-show {
+    .slide{
+        height: 400px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        .slide-title{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #FFF;
+        }
+    }
+}
+
+.galery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    .item{
+        flex-basis: 25%;
+        //align-self: flex-start;
+        position: relative;
+        .item-image{
+            height: 160px;
+            // background-size: cover;
+            // background-repeat: no-repeat;
+            img {
+                height: 100%;
+            }
+        }
+        .item-title {
+
+        }
+        .item-description {
+
+        }
+    }
+}
