@@ -1,0 +1,239 @@
+.layout-column {
+  flex-direction: column;
+  >.flex-all {
+    min-height: 0;
+  }
+}
+
+.layout-row {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 0 1 auto;
+  &.auto-center {
+    margin: 0 auto;
+  }
+  // .no-gutter {
+  //   margin: 0 -#{$gutter};
+  // }
+  // .no-top {
+  //   margin: 0 $gutter $gutter;
+  // }
+}
+
+.flex-all {
+  flex: 1;
+}
+
+.flex-none {
+  flex: 0 0 auto;
+}
+
+.flex-grow {
+  flex: 1 1 100%;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-nogrow {
+  flex: 0 1 auto;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-noshrink {
+  flex: 1 0 auto;
+}
+
+.flex-shrink {
+  flex: 1 1 0;
+}
+
+.flex-half {
+  flex: 0 0 50%;
+  width: 50%;
+}
+
+.flex-30 {
+  flex: 0 0 30%;
+  width: 30%;
+}
+
+.flex-40 {
+  flex: 0 0 40%;
+  width: 40%;
+}
+
+.flex-60 {
+  flex: 0 0 60%;
+  width: 60%;
+}
+
+.flex-70 {
+  flex: 0 0 70%;
+  width: 70%;
+}
+
+.flex-full-xs {
+  @include respond-to(phone) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+.flex-half-mini {
+  @include respond-to(mini) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+.content-center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.row-center {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.column-center {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.align-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.align-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.align-center {
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.flex,
+.layout,
+.layout-row,
+.layout-column,
+.row-center,
+.column-center {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.space-around {
+  margin: 0;
+  justify-content: space-around;
+}
+
+.space-between {
+  margin: 0;
+  justify-content: space-between;
+}
+
+.justify-start {
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  margin: 0;
+  justify-content: flex-end;
+}
+
+.align-middle {
+  align-items: center;
+}
+
+.align-bottom {
+  align-items: flex-end;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.self-middle {
+  align-self: center;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.full-h {
+  height: 100%;
+}
+
+.onerow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+   :first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+   :not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.layout-column-xs {
+  @include respond-to(phone) {
+    flex-direction: column;
+  }
+}
+
+.layout-row-xs {
+  @include respond-to(phone) {
+    flex-direction: row;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

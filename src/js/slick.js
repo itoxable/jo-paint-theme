@@ -26,9 +26,7 @@
     }
 
 }*/
-console.log('qwertyui');
 (function($) {
-    console.log($);
     'use strict';
     var Slick = window.Slick || {};
 
