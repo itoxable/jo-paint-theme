@@ -8,8 +8,7 @@
 	<title>${the_title} - ${company_name}</title>
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
-
-	<#--  <script type="text/javascript" src="${javascript_folder}/jquery-3.2.1.min.js"></script>  -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Quicksand:400,500,700" rel="stylesheet">
 
 	<@liferay_util["include"] page=top_head_include />
 
@@ -26,7 +25,7 @@
 <div class="container-fluid" id="wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 top-wrapper">
 				<header id="banner" role="banner" class="space-between align-middle layout-row full-w layout-column-xs ">
 					
 					<div id="heading">

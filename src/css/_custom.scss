@@ -33,14 +33,33 @@ $slick-arrow-color: #000 !default;
 
 body {
     // background-color: red;
-
+    // font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 a, a:hover, a:focus, a:visited {
-    color: #000000;
+    color: inherit;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.top-wrapper {
+    margin: 15px 0;
+}
+
+.disable-download {
+    pointer-events: none; 
+}
 .nav-social {
+    svg {
+        vertical-align: middle;
+        fill: #050505;
+        opacity: 1;
+        width: 30px;
+    }
     ul {
         margin: 0;
         padding: 0;
@@ -53,6 +72,10 @@ a, a:hover, a:focus, a:visited {
             padding-bottom: 0px;
             padding-left: 10px;
             padding-right: 0px;
+            a {
+                display: block;
+                text-align: center;
+            }
         }
     }
 }
@@ -60,9 +83,24 @@ a, a:hover, a:focus, a:visited {
 .navbar-nav{
     li{
         a{
-            padding: 5px;
-            &:hover {
-                border-bottom: 1px solid;
+            // margin-top: 25px;
+            // margin-left: 50px;
+            padding-bottom: 10px;
+            text-transform: capitalize;
+            font-weight: 500;
+            border-bottom: 4px solid transparent;
+            
+            &:hover, &.selected {
+                color: #9f9f9f;
+                border-bottom: 4px solid #ffe00c;
+            }
+            &.selected {
+                color: inherit;
+            }
+        }
+        &.selected {
+            a {
+                border-bottom: 4px solid #ffe00c;
             }
         }
     } 
@@ -84,6 +122,36 @@ a, a:hover, a:focus, a:visited {
             left: 50%;
             color: #FFF;
         }
+    }
+}
+
+.link-block {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    .block {
+        display: block;
+        flex: 1;
+        .block-top {
+            .link-image {
+                display: block;
+                img {
+                    width: 100%;
+                }
+            }
+            .link-description{
+
+            }
+        }
+
+        .link-name {
+            display: block;
+        }
+        
     }
 }
 
