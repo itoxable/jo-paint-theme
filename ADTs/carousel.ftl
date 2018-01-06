@@ -31,7 +31,9 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
  $('.slide-show').slick({
-  dots: true
+  dots: true,
+  prevArrow: '<i class="fa fa-angle-left gallery-prev" aria-hidden="true"></i>',
+  nextArrow: '<i class="fa fa-angle-right gallery-next" aria-hidden="true"></i>'
  });
 });
 </script>

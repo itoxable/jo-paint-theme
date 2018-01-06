@@ -52,31 +52,14 @@
   flex: 1 1 0;
 }
 
-.flex-half {
-  flex: 0 0 50%;
-  width: 50%;
-}
 
-.flex-30 {
-  flex: 0 0 30%;
-  width: 30%;
+@for $i from 1 through 20 {
+  .flex-#{$i * 5} {
+    flex: 0 0 #{$i * 5%};
+    width: #{$i * 5%};
+  }
 }
-
-.flex-40 {
-  flex: 0 0 40%;
-  width: 40%;
-}
-
-.flex-60 {
-  flex: 0 0 60%;
-  width: 60%;
-}
-
-.flex-70 {
-  flex: 0 0 70%;
-  width: 70%;
-}
-
+  
 .flex-full-xs {
   @include respond-to(phone) {
     flex: 0 0 100%;

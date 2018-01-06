@@ -1,4 +1,4 @@
-<div class="link-block">
+<div class="block-links">
     <#if entries?has_content>   
     <#assign layoutLocalService = serviceLocator.findService('com.liferay.portal.kernel.service.LayoutLocalService') />
     	<#list entries as entry>
@@ -16,25 +16,27 @@
 
             <#if pageLayout?has_content>
 
-				<div class="block">
+				<a class="link" href="${pageLayout.getFriendlyURL()}">
 
 					<div class="lfr-meta-actions asset-actions" style="float: none">
     			         <@getEditIcon/> 
     			    </div>
 
-					<div class="block-top">
-						<a class="link-image" href="${pageLayout.getFriendlyURL()}" >
-							<img src="${image}">
-						</a>
-						<a class="link-description" >
-							${entry.getTitle(locale)}
-						</a>
+					<div class="link-image"  >
+						<img src="${image}">
 					</div>
-					<a class="link-name" href="${pageLayout.getFriendlyURL()}" >
-						${entry.getTitle(locale)}
-					</a>
+					
+					<div class="link-txt" >
+    					<h3 class="link-name">
+    						${entry.getTitle(locale)}
+    					</h3>
+    					<p class="link-description" >
+    						${entry.getTitle(locale)}
+    					</p>
+					</div>
+					
             
-        		</div>
+        		</a>
     		</#if>
     	</#list>
     </#if>
