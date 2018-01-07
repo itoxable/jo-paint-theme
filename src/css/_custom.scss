@@ -115,14 +115,17 @@ svg:not(:root) {
         #overlay {
             display: block;
         }
+        #mobile-nav-button {}
     }
     #mobile-nav-button {
         width: 25px;
         height: 24px;
         float: right;
-        margin-top: 26px;
-        display: block; 
-        
+        margin-top: -12px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 20px;
     }
     #mobile-nav-icon {
         width: 100%;
