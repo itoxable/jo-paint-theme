@@ -25,8 +25,16 @@
 <div class="container-fluid" id="wrapper">
 	<div class="row">
 		<div class="col-md-12 top-wrapper">
-			<header id="banner" role="banner" class="space-between align-middle full-w layout-column">
-				
+			
+			<header id="banner" role="banner" class="space-between align-middle full-w layout-column layout-row-xs align-center-xs">
+				<div id="mobile-nav-button">
+					<div id="mobile-nav-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
 				<div id="heading">
 					<div class="site-title">
 						<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
@@ -45,10 +53,13 @@
 					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 				</#if>  -->
 				
-				<div>
+				<div class="navigation">
 					<#if has_navigation && is_setup_complete>
 						<#include "${full_templates_path}/navigation.ftl" />
 					</#if>
+					<div class="close-navigation">
+						<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+					<div>
 				</div>
 				
 				
@@ -104,6 +115,7 @@
 		</div>
 	</footer>
 </div>
+<div id="overlay"></div>
 
 <@liferay_util["include"] page=body_bottom_include />
 
@@ -112,6 +124,22 @@
 <!-- inject:js -->
 
 	<script type="text/javascript" src="${javascript_folder}/slick.js"></script>
+	<script type="text/javascript">
+		function closeNavigation() {
+			$('body').toggleClass("menu-on");
+		}
+		$('#mobile-nav-button').click(function(){
+			closeNavigation();
+		});
+		$('#overlay').click(function(){
+			closeNavigation();
+		});
+		$('.close-navigation').click(function(){
+			closeNavigation();
+		});
+
+		
+	</script>
 
 
 <!-- endinject -->

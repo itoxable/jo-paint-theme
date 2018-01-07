@@ -52,6 +52,9 @@
   flex: 1 1 0;
 }
 
+.flex-third {
+  width: calc(100% / 3);
+}
 
 @for $i from 1 through 20 {
   .flex-#{$i * 5} {
@@ -60,19 +63,6 @@
   }
 }
   
-.flex-full-xs {
-  @include respond-to(phone) {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-}
-
-.flex-half-mini {
-  @include respond-to(mini) {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-}
 
 .content-center {
   justify-content: center;
@@ -197,17 +187,9 @@
   }
 }
 
-.layout-column-xs {
-  @include respond-to(phone) {
-    flex-direction: column;
-  }
-}
 
-.layout-row-xs {
-  @include respond-to(phone) {
-    flex-direction: row;
-  }
-}
+
+
 
 .text-center {
   text-align: center;
@@ -220,3 +202,42 @@
 .text-right {
   text-align: right;
 }
+// @mixin media-query($min, $max: null) {
+@include media-query(null, $screen-sm) {
+
+  .align-center-xs {
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .flex-third-xs {
+    width: calc(100% / 3);
+  }
+  .layout-row-xs {
+    flex-direction: row;
+  }
+  .layout-column-xs {
+    flex-direction: column;
+  }
+  .flex-full-xs {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  
+  .flex-half-mini {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  @for $i from 1 through 20 {
+    .flex-xs-#{$i * 5} {
+      flex: 0 0 #{$i * 5%};
+      width: #{$i * 5%};
+    }
+  }
+}
+
+
+
+  

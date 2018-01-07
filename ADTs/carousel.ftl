@@ -8,8 +8,12 @@
 
             <#assign article = assetRenderer.getArticle()/>
             <#assign doc = saxReaderUtil.read(article.getContentByLocale(locale)) />
+			<#assign imageNode = doc.selectSingleNode("/root/dynamic-element[@name='image']/dynamic-content") />
 			
-			 <#assign image = doc.selectSingleNode("/root/dynamic-element[@name='image']/dynamic-content").getText() />
+			<#assign articleDescription = article.getDescription(locale) />
+			<#assign image = imageNode.getText() />
+			<#assign imageAlt = imageNode.valueOf("@alt") />
+			<#assign imageDescription = doc.selectSingleNode("/root/dynamic-element[@name='description']/dynamic-content").getText()  />
 
     		
             <div class="slide" style="background-image: url('${image}');">
@@ -18,9 +22,14 @@
 			         <@getEditIcon/> 
 			    </div>
     		    
-    		    <div class="slide-title">
-    		        ${entry.getTitle(locale)}
-    		    </div>
+    		    <div class="slide-text">
+					<div class="slide-title">
+						${entry.getTitle(locale)}
+					</div>
+					<div class="slide-description">
+						${imageDescription}
+					</div>
+				</div>
     		</div>
     		
     		

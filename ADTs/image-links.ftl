@@ -8,35 +8,48 @@
 			<#assign entryTitle = htmlUtil.escape(assetRenderer.getTitle(locale)) />
             <#assign article = assetRenderer.getArticle()/>
             <#assign doc = saxReaderUtil.read(article.getContentByLocale(locale)) />
-			<#assign image = doc.selectSingleNode("/root/dynamic-element[@name='image']/dynamic-content").getText() />
+
+			<#assign imageNode = doc.selectSingleNode("/root/dynamic-element[@name='image']/dynamic-content") />
+			<#assign image = imageNode.getText() />
+			<#assign imageAlt = imageNode.valueOf("@alt") />
+
+			<#assign imageDescription = article.getDescription(locale) />
+
+
+
+
     		<#assign link = doc.selectSingleNode("/root/dynamic-element[@name='link']/dynamic-content").getText() />
             <#assign linkDetails = link?split("@") />
 
             <#assign pageLayout = layoutLocalService.getLayout(linkDetails[2]?number, false, linkDetails[0]?number) />
 
             <#if pageLayout?has_content>
-
-				<a class="link" href="${pageLayout.getFriendlyURL()}">
-
-					<div class="lfr-meta-actions asset-actions" style="float: none">
-    			         <@getEditIcon/> 
-    			    </div>
-
-					<div class="link-image"  >
-						<img src="${image}">
-					</div>
-					
-					<div class="link-txt" >
-    					<h3 class="link-name">
-    						${entry.getTitle(locale)}
-    					</h3>
-    					<p class="link-description" >
-    						${entry.getTitle(locale)}
-    					</p>
-					</div>
-					
-            
-        		</a>
+                <div class="link-wrapper">
+    				<a class="link" href="${pageLayout.getFriendlyURL()}">
+    
+    					<div class="lfr-meta-actions asset-actions" style="float: none">
+        			         <@getEditIcon/> 
+        			    </div>
+    
+    					<div class="link-image"  >
+    						<img src="${image}" alt="${imageAlt}">
+    					</div>
+    					
+    					<div class="link-txt" >
+        					<h3 class="link-name">
+        						${entry.getTitle(locale)}
+        					</h3>
+        					<p class="link-description" >
+        						${imageDescription}
+        					</p>
+    					</div>
+    					
+                
+            		</a>
+            		<a class="link-name" href="${pageLayout.getFriendlyURL()}">
+    					${entry.getTitle(locale)}
+    				</a>
+				</div>
     		</#if>
     	</#list>
     </#if>
